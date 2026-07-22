@@ -2,10 +2,20 @@ from fastapi import FastAPI
 from app.db.database import Base, engine
 from app.models import user as user_model, audit_log as audit_log_model, access_request as access_request_model
 from app.routes import auth, users, manager, employee
+from fastapi.middleware.cors import CORSMiddleware
 
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="SecureIdentity - IAM Portal")
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Production mein specific frontend URL daalenge
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.include_router(auth.router)
 app.include_router(users.router)
