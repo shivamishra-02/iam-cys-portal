@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SecureIdentity - Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <h2>🔐 SecureIdentity</h2>
+    <div class="nav-right">
+      <span id="userInfo"></span>
+      <button id="logoutBtn">Logout</button>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- ===== EMPLOYEE SECTION (visible to everyone) ===== -->
+    <section class="card">
+      <h2>👤 My Profile</h2>
+      <div id="profileBox"></div>
+      <button onclick="toggleForm('editProfileForm')">Edit Profile</button>
+      <form id="editProfileForm" class="hidden-form">
+        <input type="text" id="editFullName" placeholder="Full Name">
+        <input type="email" id="editEmail" placeholder="Email">
+        <button type="submit">Save</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>🔑 Change Password</h2>
+      <form id="changePasswordForm">
+        <input type="password" id="oldPassword" placeholder="Old Password" required>
+        <input type="password" id="newPassword" placeholder="New Password" required>
+        <button type="submit">Change Password</button>
+      </form>
+      <p id="passwordMsg" class="success-msg"></p>
+    </section>
+
+    <section class="card">
+      <h2>📩 Request Access</h2>
+      <form id="accessRequestForm">
+        <input type="text" id="resourceName" placeholder="Resource name (e.g. Production DB)" required>
+        <input type="text" id="reason" placeholder="Reason">
+        <button type="submit">Submit Request</button>
+      </form>
+      <p id="accessMsg" class="success-msg"></p>
+    </section>
+
+    <!-- ===== MANAGER SECTION ===== -->
+    <section class="card manager-only hidden">
+      <h2>👥 Employees</h2>
+      <div id="employeeList"></div>
+    </section>
+
+    <section class="card manager-only hidden">
+      <h2>📋 Access Requests</h2>
+      <div id="accessRequestsList"></div>
+    </section>
+
+    <!-- ===== ADMIN SECTION ===== -->
+    <section class="card admin-only hidden">
+      <h2>➕ Create User</h2>
+      <form id="createUserForm">
+        <input type="text" id="newFullName" placeholder="Full Name" required>
+        <input type="email" id="newEmail" placeholder="Email" required>
+        <input type="password" id="newPassword2" placeholder="Password" required>
+        <select id="newRole">
+          <option value="employee">Employee</option>
+          <option value="manager">Manager</option>
+          <option value="admin">Admin</option>
+        </select>
+        <button type="submit">Create User</button>
+      </form>
+      <p id="createUserMsg" class="success-msg"></p>
+    </section>
+
+    <section class="card admin-only hidden">
+      <h2>🗂️ All Users</h2>
+      <div id="allUsersList"></div>
+    </section>
+
+    <section class="card admin-only hidden">
+      <h2>📜 Audit Logs</h2>
+      <div id="auditLogsList"></div>
+    </section>
+
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+
+body { background: #0f172a; color: #e2e8f0; }
+
+/* ===== LOGIN PAGE ===== */
+.auth-container {
+  display: flex; justify-content: center; align-items: center;
+  height: 100vh;
+}
+.auth-card {
+  background: #1e293b; padding: 40px; border-radius: 12px;
+  width: 380px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+.auth-card h1 { text-align: center; margin-bottom: 4px; }
+.subtitle { text-align: center; color: #94a3b8; margin-bottom: 24px; font-size: 14px; }
+.auth-card label { display: block; margin-top: 14px; margin-bottom: 6px; font-size: 14px; color: #cbd5e1; }
+.auth-card input, .auth-card select {
+  width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #334155;
+  background: #0f172a; color: #e2e8f0;
+}
+.auth-card button, .card button {
+  width: 100%; padding: 10px; margin-top: 18px; border: none;
+  border-radius: 6px; background: #2563eb; color: white;
+  font-weight: 600; cursor: pointer; transition: background 0.2s;
+}
+.auth-card button:hover, .card button:hover { background: #1d4ed8; }
+.error-msg { color: #f87171; margin-top: 12px; text-align: center; font-size: 14px; }
+.success-msg { color: #4ade80; margin-top: 10px; font-size: 14px; }
+
+/* ===== DASHBOARD ===== */
+.navbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 32px; background: #1e293b; border-bottom: 1px solid #334155;
+}
+.nav-right { display: flex; align-items: center; gap: 16px; }
+#logoutBtn { background: #dc2626; border: none; padding: 8px 16px; border-radius: 6px; color: white; cursor: pointer; }
+
+.container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+
+.card {
+  background: #1e293b; padding: 24px; border-radius: 10px; margin-bottom: 20px;
+}
+.card h2 { margin-bottom: 14px; font-size: 18px; }
+.card input, .card select {
+  width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 6px;
+  border: 1px solid #334155; background: #0f172a; color: #e2e8f0;
+}
+.hidden { display: none; }
+.hidden-form { display: none; margin-top: 12px; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid #334155; font-size: 14px; }
+th { color: #94a3b8; }
+
+.badge { padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+.badge-admin { background: #7c3aed33; color: #a78bfa; }
+.badge-manager { background: #2563eb33; color: #60a5fa; }
+.badge-employee { background: #05966933; color: #34d399; }
+.badge-active { background: #05966933; color: #34d399; }
+.badge-inactive { background: #dc262633; color: #f87171; }
+.badge-pending { background: #ca8a0433; color: #fbbf24; }
+.badge-approved { background: #05966933; color: #34d399; }
+.badge-rejected { background: #dc262633; color: #f87171; }
+
+.action-btn {
+  padding: 4px 10px; margin-right: 4px; border: none; border-radius: 4px;
+  font-size: 12px; cursor: pointer; color: white;
+}
+.btn-approve { background: #16a34a; }
+.btn-reject { background: #dc2626; }
+.btn-deactivate { background: #ca8a04; }
+.btn-activate { background: #16a34a; }
+.btn-delete { background: #dc2626; }

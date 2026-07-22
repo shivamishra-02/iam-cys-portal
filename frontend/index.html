@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SecureIdentity - Login</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-card">
+      <h1>🔐 SecureIdentity</h1>
+      <p class="subtitle">Identity & Access Management Portal</p>
+
+      <form id="loginForm">
+        <label>Email</label>
+        <input type="email" id="email" required placeholder="you@company.com">
+
+        <label>Password</label>
+        <input type="password" id="password" required placeholder="••••••••">
+
+        <button type="submit">Login</button>
+        <p id="errorMsg" class="error-msg"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
