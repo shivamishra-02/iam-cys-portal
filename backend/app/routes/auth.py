@@ -5,7 +5,20 @@ from app.models.user import User
 from app.schemas.auth import LoginRequest, TokenResponse
 from app.core.security import verify_password, create_access_token
 
+from app.core.dependencies import get_current_user
+from app.models.user import User
+
+
 router = APIRouter(prefix="/auth", tags=["Authentication"])
+
+@router.get("/me")
+def get_me(current_user: User = Depends(get_current_user)):
+    return {
+        "email": current_user.email,
+        "role": current_user.role,
+        "full_name": current_user.full_name
+    }
+
 
 @router.post("/login", response_model=TokenResponse)
 def login(credentials: LoginRequest, db: Session = Depends(get_db)):
