@@ -21,16 +21,15 @@ async function apiRequest(endpoint, method = "GET", body = null) {
   if (body) config.body = JSON.stringify(body);
 
   const response = await fetch(`${API_BASE}${endpoint}`, config);
-
-  if (response.status === 401) {
-    clearToken();
-    window.location.href = "index.html";
-    return;
-  }
-
   const data = await response.json().catch(() => null);
 
   if (!response.ok) {
+    // Sirf tab redirect karo jab already logged-in user ka token invalid ho
+    // Login route khud pe 401 aana galat credentials ka matlab hai, redirect nahi
+    if (response.status === 401 && !endpoint.includes("/auth/login")) {
+      clearToken();
+      window.location.href = "index.html";
+    }
     throw new Error(data?.detail || "Something went wrong");
   }
   return data;
