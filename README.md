@@ -115,7 +115,7 @@ iam-cys-portal/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/iam-cys-portal.git
+git clone https://github.com/shivamishra-02/iam-cys-portal.git
 cd iam-cys-portal
 ```
 
