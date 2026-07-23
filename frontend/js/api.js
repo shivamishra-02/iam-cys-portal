@@ -1,4 +1,4 @@
-const API_BASE = "http://127.0.0.1:8000"; // Local dev — deploy ke baad Render URL se replace hoga
+const API_BASE = "https://secureidentity-backend.onrender.com"; // backend live URL (After deployed it on render)
 
 function getToken() {
   return localStorage.getItem("access_token");
