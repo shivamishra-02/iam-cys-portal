@@ -11,7 +11,10 @@ app = FastAPI(title="SecureIdentity - IAM Portal")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Production mein specific frontend URL daalenge
+    allow_origins=[
+        "https://iam-cys-portal.vercel.app",  #Actual frontend deployed on vercel (Security k liye)
+        "http://127.0.0.1:5500",              # local testing ke liye
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
